@@ -19,6 +19,24 @@ repositories {
 	mavenCentral()
 }
 
+tasks.register('buildDocker', Exec) {
+	dependsOn build
+	workingDir "$projectDir"
+	commandLine 'docker', 'build', '--rm', '.', '-t', "${project.group.split("\\.").last()}/${project.name.toLowerCase()}:$project.version", "-f", "$projectDir/Dockerfile"
+}
+
+tasks.register('runDocker', Exec) {
+	dependsOn buildDocker
+	workingDir "$projectDir"
+	commandLine 'docker', 'run', "${project.group.split("\\.").last()}/${project.name.toLowerCase()}:$project.version"
+}
+
+tasks.register('pushDocker', Exec) {
+	dependsOn buildDocker
+	workingDir "$projectDir"
+	commandLine 'docker', 'push', "${project.group.split("\\.").last()}/${project.name.toLowerCase()}:$project.version"
+}
+
 dependencies {
 	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
