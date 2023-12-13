@@ -1,0 +1,13 @@
+spring:
+    messages:
+        basename: messages
+        use-code-as-default-message: true
+    datasource:
+        url: ${DATA_URL:jdbc:postgresql://localhost:5432/postgres}
+        username: ${DATA_USER:postgres}
+        password: ${DATA_PASS:postgres}
+    jpa:
+        hibernate:
+            ddl-auto: update
+server:
+    port: ${PORT:8080}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>FilmoTory</title>
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          rel="stylesheet">
+</head>
+<body class="bg-secondary">
+
+<nav class="navbar navbar-expand-md container-md fixed-top shadow-lg mt-3  justify-content-evenly border-body rounded bg-dark">
+    <div>
+        <img alt="logo" height="32" src="../static/logo.svg" width="32">
+    </div>
+    <div>
+        <button class="btn btn-dark" th:text="#{web.nav.cinemas}" type="button">Cinemas</button>
+    </div>
+    <div>
+        <button class="btn btn-dark" th:text="#{web.nav.films}" type="button">
+            Films
+        </button>
+    </div>
+</nav>
+
+<main class="container" role="main" style="padding-top: 80px">
+    <div class="jumbotron">
+        <div>
+            <div>
+                <h1 th:text="#{web.top10.films}">Top 10 films by last week</h1>
+                <div>
+                    <div class="carousel slide" data-ride="carousel" id="carouselExample">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img alt="logo" src="../static/logo.svg">
+                            </div>
+                            <div class="carousel-item">
+                                <img alt="logo" src="../static/logo.svg">
+                            </div>
+                            <div class="carousel-item">
+                                <img alt="logo" src="../static/logo.svg">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" data-slide="prev" href="#carouselExample" type="button">
+                            <span class="carousel-control-prev-icon"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" data-slide="next" href="#carouselExample" type="button">
+                            <span class="carousel-control-next-icon"></span>
+                            <span>Next</span>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <span th:text="#{web.top10.films}">Top 10 cinemas</span>
+                </div>
+                <div>
+                    <span th:text="#{web.sessions.upcoming}">Upcoming sessions</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>
